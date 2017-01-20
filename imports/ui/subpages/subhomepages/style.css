@@ -1,0 +1,50 @@
+homepage-header {
+  height: 80px;
+  width: 100%;
+  box-shadow: 0 2px 2px -2px #d7d7d7;
+}
+
+homepage-header img {
+  height: 60px;
+  width: 60px;
+  padding: 10px 5px 10px 5px;
+}
+
+homepage-header context {
+  padding-left: 5px;
+  padding-right: 5px;
+  text-transform: uppercase;
+}
+
+homepage-header subheader {
+  font-size: 12px;
+  font-size: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  margin-right: auto;
+  margin-left: auto;
+  display: inline;
+}
+
+homepage-header megamenu {
+  font-size: 18px;
+  font-size: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-weight: bolder;
+  margin-right: auto;
+  margin-left: auto;
+  display: inline;
+}
+
+homepage-header link {
+  color: #000000;
+}
+
+homepage-header button {
+  color: #000000;
+}
+
+homepage-header button:hover {
+  color: #d7d7d7;
+}
+
+homepage-header currency {
+  float: right;
+}

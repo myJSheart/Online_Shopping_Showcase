@@ -1,0 +1,15 @@
+"header": {
+  "subheader": {
+    "storelocator": "Store Locator",
+    "customerservice": "Customer Service",
+    "subscribe": "Newsletter Sign Up"
+  },
+  "megamenu": {
+    "ladies": "Ladies",
+    "men": "Men",
+    "kid": "Kids"
+  },
+  "currency": {
+    "format": "All prices in __currency__"
+  }
+}
