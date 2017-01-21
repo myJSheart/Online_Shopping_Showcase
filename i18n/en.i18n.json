@@ -1,17 +1,13 @@
 {
-    "header": {
-        "subheader": {
-            "storelocator": "Store Locator",
-            "customerservice": "Customer Service",
-            "subscribe": "Subscribe"
-        },
-        "megamenu": {
-            "ladies": "Ladies",
-            "men": "Men",
-            "kid": "Kids"
-        },
-        "currency": {
-            "format": "All prices in __currency__"
-        }
+  "title": {
+    "studioname": "JR Studio",
+    "websitename": "Green World"
+  },
+  "header": {
+    "link": {
+      "interior": "Interior",
+      "outdoor": "Outdoor",
+      "artwork": "Artwork"
     }
+  }
 }
