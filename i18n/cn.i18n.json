@@ -1,15 +1,17 @@
-"header": {
-  "subheader": {
-    "storelocator": "发现实体店",
-    "customerservice": "顾客服务",
-    "subscribe": "订阅新闻"
-  },
-  "megamenu": {
-    "ladies": "女士",
-    "men": "男士",
-    "kid": "儿童"
-  },
-  "currency": {
-    "format": "所有的价格单位是__currency__"
-  }
+{
+    "header": {
+        "subheader": {
+            "storelocator": "发现实体店",
+            "customerservice": "顾客服务",
+            "subscribe": "订阅新闻"
+        },
+        "megamenu": {
+            "ladies": "女士",
+            "men": "男士",
+            "kid": "儿童"
+        },
+        "currency": {
+            "format": "所有的价格单位是__currency__"
+        }
+    }
 }

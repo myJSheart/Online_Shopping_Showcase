@@ -7,8 +7,9 @@
     "pretest": "npm run lint --silent"
   },
   "dependencies": {
-    "babel-runtime": "6.18.0",
+    "babel-runtime": "^6.18.0",
     "bcrypt": "^1.0.2",
+    "bootstrap": "^4.0.0-alpha.6",
     "indexof": "0.0.1",
     "meteor-node-stubs": "~0.2.0",
     "react": "^15.4.2",

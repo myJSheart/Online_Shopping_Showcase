@@ -7,17 +7,19 @@ import Currency from '../../components/Currency.jsx';
 class Header extends Component {
   render() {
     return (
-      <Grid className="homepage-header">
-        <Cell offsetDesktop={2} col={8} tablet={8} phone={6}>
-          <img src="logo.png" alt="Fast Buy" href="/homepage" />
-          <div className="context">
+      <div className="homepage-header">
+        <Grid>
+          <Cell offsetDesktop={2} col={1} offsetTablet={3} tablet={1} offsetPhone={2} phone={1}>
+            <img src="logo.png" alt="Fast Buy" href="/homepage" />
+          </Cell>
+          <Cell col={6} tablet={8} phone={6}>
             <HeaderNav />
-          </div>
-          <div className="currency">
+          </Cell>
+          <Cell col={1} offsetTablet={3} tablet={1} offsetPhone={2} phone={1}>
             <Currency />
-          </div>
-        </Cell>
-      </Grid>
+          </Cell>
+        </Grid>
+      </div>
     );
   }
 }
