@@ -6,27 +6,28 @@ import { Grid, Cell } from 'react-mdl';
 class HeaderNav extends Component {
   render() {
     return (
-      <div>
-        <Grid>
-          <Cell offsetDesktop={3} col={2} offsetTablet={1} tablet={2} phone={2}>
-            <a className="sublink" href=""><center>{TAPi18n.__('header.subheader.storelocator')}</center></a>
-          </Cell>
-          <Cell col={2} tablet={2} phone={2}>
-            <a className="sublink" href=""><center>{TAPi18n.__('header.subheader.storelocator')}</center></a>
-          </Cell>
-          <Cell col={2} tablet={2} phone={2}>
-            <a className="sublink" href=""><center>{TAPi18n.__('header.subheader.subscribe')}</center></a>
-          </Cell>
-          <Cell offsetDesktop={3} col={2} offsetTablet={1} tablet={2} phone={2}>
-            <a className="mainlink" href=""><center>{TAPi18n.__('header.megamenu.ladies')}</center></a>
-          </Cell>
-          <Cell col={2} tablet={2} phone={2}>
-            <a className="mainlink" href=""><center>{TAPi18n.__('header.megamenu.men')}</center></a>
-          </Cell>
-          <Cell col={2} tablet={2} phone={2}>
-            <a className="mainlink" href=""><center>{TAPi18n.__('header.megamenu.kid')}</center></a>
-          </Cell>
-        </Grid>
+      <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header className="mdl-layout__header">
+          <div className="mdl-layout__header-row">
+            <span className="mdl-layout-title">Title</span>
+            <div className="mdl-layout-spacer" />
+            <nav className="mdl-navigation mdl-layout--large-screen-only">
+              <a className="mdl-navigation__link" href="">Link</a>
+              <a className="mdl-navigation__link" href="">Link</a>
+              <a className="mdl-navigation__link" href="">Link</a>
+              <a className="mdl-navigation__link" href="">Link</a>
+            </nav>
+          </div>
+        </header>
+        <div className="mdl-layout__drawer">
+          <span className="mdl-layout-title">Title</span>
+          <nav className="mdl-navigation">
+            <a className="mdl-navigation__link" href="">Link</a>
+            <a className="mdl-navigation__link" href="">Link</a>
+            <a className="mdl-navigation__link" href="">Link</a>
+            <a className="mdl-navigation__link" href="">Link</a>
+          </nav>
+        </div>
       </div>
     );
   }
