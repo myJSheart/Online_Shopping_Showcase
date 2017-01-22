@@ -9,5 +9,8 @@
       "outdoor": "Outdoor",
       "artwork": "Artwork"
     }
+  },
+  "newitem": {
+    "button": "Find Out New Items"
   }
 }

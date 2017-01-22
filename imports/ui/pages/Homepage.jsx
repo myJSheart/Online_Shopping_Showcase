@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Header from '../subpages/subhomepages/Header.jsx';
+import Newitem from '../subpages/subhomepages/Newitem.jsx';
 
 class HomePage extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Newitem />
       </div>
     );
   }
