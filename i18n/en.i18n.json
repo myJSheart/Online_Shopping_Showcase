@@ -11,6 +11,10 @@
     }
   },
   "newitem": {
-    "button": "Find Out New Items"
+    "itemname": "Combo Succulent Plan",
+    "price": "$35.99",
+    "trend": "New Trend",
+    "design": "Vigorous Design",
+    "button": "Find More"
   }
 }
