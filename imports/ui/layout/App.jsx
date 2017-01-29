@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { TAPi18n } from 'meteor/tap:i18n';
+import Bottom from './Bottom.jsx';
 
 class App extends Component {
   render() {
@@ -49,7 +50,7 @@ class App extends Component {
           </nav>
         </div>
         <main className="mdl-layout__content">
-          <div className="page-content">{this.props.children}</div>
+          <div className="page-content mainframe">{this.props.children}<Bottom /></div>
         </main>
       </div>
     );
