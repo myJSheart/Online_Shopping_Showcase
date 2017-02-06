@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Cell } from 'react-mdl';
+import $ from 'jquery';
 
 class Sections extends Component {
   render() {
@@ -8,47 +9,37 @@ class Sections extends Component {
         <Grid>
           <Cell col={4} tablet={8} phone={6}>
             <div className="container">
-              <img width="100%" src="plants/4.jpeg" alt="" className="image" />
+              <img width="100%" src="plants/left.jpg" alt="" className="image-hover" />
               <div className="overlay">
                 <div className="text">1</div>
               </div>
             </div>
           </Cell>
-          <Cell col={8} tablet={8} phone={6}>
-            <Grid>
-              <Cell col={6} tablet={8} phone={6}>
-                <div className="container">
-                  <img style={{ maxWidth: '327px' }} width="100%" src="plants/5.jpg" alt="" />
-                  <div style={{ maxWidth: '350px' }} className="overlay">
-                    <div className="text">2</div>
-                  </div>
+          <Cell col={4} tablet={8} phone={6}>
+            <Cell col={12} tablet={8} phone={6}>
+              <div className="container">
+                <img style={{ width: '100%' }} width="100%" src="plants/above.jpg" alt="" className="image-hover" />
+                <div className="overlay">
+                  <div className="text">1</div>
                 </div>
-              </Cell>
-              <Cell col={6} tablet={8} phone={6}>
-                <div className="container">
-                  <img style={{ maxWidth: '490px' }} width="100%" src="plants/1.jpg" alt="" />
-                  <div style={{ maxWidth: '490px' }} className="overlay">
-                    <div className="text">3</div>
-                  </div>
+              </div>
+            </Cell>
+            <Cell col={12} tablet={8} phone={6}>
+              <div className="container">
+                <img style={{ marginTop: '15px', width: '100%' }} width="100%" src="plants/below.jpg" alt="" className="image-hover" />
+                <div className="overlay">
+                  <div className="text">1</div>
                 </div>
-              </Cell>
-              <Cell col={6} tablet={8} phone={6}>
-                <div className="container">
-                  <img style={{ maxWidth: '327px' }} width="100%" src="plants/2.jpeg" alt="" />
-                  <div style={{ maxWidth: '350px' }} className="overlay">
-                    <div className="text">4</div>
-                  </div>
-                </div>
-              </Cell>
-              <Cell col={6} tablet={8} phone={6}>
-                <div className="container">
-                  <img style={{ maxWidth: '490px' }} width="100%" src="plants/3.jpg" alt="" />
-                  <div style={{ maxWidth: '490px' }} className="overlay">
-                    <div className="text">5</div>
-                  </div>
-                </div>
-              </Cell>
-            </Grid>
+              </div>
+            </Cell>
+          </Cell>
+          <Cell col={4} tablet={8} phone={6}>
+            <div className="container">
+              <img width="100%" src="plants/right.jpg" alt="" className="image-hover" />
+              <div className="overlay">
+                <div className="text">1</div>
+              </div>
+            </div>
           </Cell>
         </Grid>
       </div>

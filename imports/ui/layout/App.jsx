@@ -12,13 +12,13 @@ class App extends Component {
               <img src="logo.png" alt={TAPi18n.__('title.websitename')} width="80px" height="80px" />
             </span>
             <div className="mdl-layout-spacer" />
-            <nav className="mdl-navigation mdl-layout--large-screen-only">
-              <a style={{ color: '#FFFFFF' }} className="mdl-navigation__link" href="">{TAPi18n.__('header.link.interior')}</a>
-              <a style={{ color: '#FFFFFF' }} className="mdl-navigation__link" href="">{TAPi18n.__('header.link.outdoor')}</a>
-              <a style={{ color: '#FFFFFF' }} className="mdl-navigation__link" href="">{TAPi18n.__('header.link.artwork')}</a>
+            <nav className="mdl-navigation mdl-layout--large-screen-only" style={{ marginRight: '5px' }}>
+              <a style={{ color: '#FFFFFF' }} className="mdl-navigation__link header-link" href="">{TAPi18n.__('header.link.interior')}</a>
+              <a style={{ color: '#FFFFFF' }} className="mdl-navigation__link header-link" href="">{TAPi18n.__('header.link.outdoor')}</a>
+              <a style={{ color: '#FFFFFF' }} className="mdl-navigation__link header-link" href="">{TAPi18n.__('header.link.artwork')}</a>
             </nav>
             <div>
-              <img width="50px" height="50px" src="account.png" alt="Access Your Account" />
+              <img className="my-account" width="50px" height="50px" src="account.png" alt="Access Your Account" />
             </div>
             <div
               style={{ paddingLeft: '5px' }}
