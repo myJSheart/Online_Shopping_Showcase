@@ -1,8 +1,23 @@
 import React, { Component, PropTypes } from 'react';
 import { TAPi18n } from 'meteor/tap:i18n';
 import Bottom from './Bottom.jsx';
+import MyAccount from '../components/MyAccount.jsx';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      popoverOpen: false,
+    };
+    this.handlePopoverOpen = this.handlePopoverOpen.bind(this);
+  }
+
+  handlePopoverOpen(popoverOpen) {
+    this.setState({
+      popoverOpen,
+    });
+  }
+
   render() {
     return (
       <div className="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -17,8 +32,10 @@ class App extends Component {
               <a style={{ color: '#FFFFFF' }} className="mdl-navigation__link header-link" href="">{TAPi18n.__('header.link.outdoor')}</a>
               <a style={{ color: '#FFFFFF' }} className="mdl-navigation__link header-link" href="">{TAPi18n.__('header.link.artwork')}</a>
             </nav>
-            <div>
-              <img className="my-account" width="50px" height="50px" src="account.png" alt="Access Your Account" />
+            <div
+              id="jr-studio-myaccount"
+            >
+              <img className="my-account" width="50px" height="50px" src="account.png" alt="Manage your account" />
             </div>
             <div
               style={{ paddingLeft: '5px' }}
