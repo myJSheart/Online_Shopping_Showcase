@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { TAPi18n } from 'meteor/tap:i18n';
 import Bottom from './Bottom.jsx';
-import MyAccount from '../components/MyAccount.jsx';
 
 class App extends Component {
   constructor(props) {

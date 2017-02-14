@@ -1,0 +1,12 @@
+{
+  "_id": "string",
+  "name": "string",
+  "type": [
+    "array", "array"
+  ],
+  "url": "string",
+  "introduction" : "string",
+  "number": "number",
+  "createAt": "date",
+  "updateAt": "date"
+}

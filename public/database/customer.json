@@ -1,0 +1,14 @@
+{
+  "_id": "string",
+  "username": "string",
+  "email": "email",
+  "phonenumber": "string",
+  "address": "string",
+  "postcode": "string",
+  "creditcard": [
+    {
+      "cardnumber": "string",
+      "expirydate": "date",
+    }
+  ],
+}
