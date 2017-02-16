@@ -5,9 +5,10 @@
   },
   "header": {
     "link": {
-      "interior": "Interior",
-      "outdoor": "Outdoor",
-      "artwork": "Artwork"
+      "wall": "Green Wall",
+      "potted": "Potted Succulents",
+      "massive": "Massive Succulents",
+      "combo": "Combo"
     }
   },
   "newitem": {

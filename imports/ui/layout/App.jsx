@@ -27,15 +27,11 @@ class App extends Component {
             </span>
             <div className="mdl-layout-spacer" />
             <nav className="mdl-navigation mdl-layout--large-screen-only" style={{ marginRight: '5px' }}>
-              <a style={{ color: '#FFFFFF' }} className="mdl-navigation__link header-link" href="">{TAPi18n.__('header.link.interior')}</a>
-              <a style={{ color: '#FFFFFF' }} className="mdl-navigation__link header-link" href="">{TAPi18n.__('header.link.outdoor')}</a>
-              <a style={{ color: '#FFFFFF' }} className="mdl-navigation__link header-link" href="">{TAPi18n.__('header.link.artwork')}</a>
+              <a style={{ color: '#FFFFFF' }} className="mdl-navigation__link header-link" href="goodspage/wall">{TAPi18n.__('header.link.wall')}</a>
+              <a style={{ color: '#FFFFFF' }} className="mdl-navigation__link header-link" href="goodspage/potted">{TAPi18n.__('header.link.potted')}</a>
+              <a style={{ color: '#FFFFFF' }} className="mdl-navigation__link header-link" href="goodspage/massive">{TAPi18n.__('header.link.massive')}</a>
+              <a style={{ color: '#FFFFFF' }} className="mdl-navigation__link header-link" href="goodspage/combo">{TAPi18n.__('header.link.combo')}</a>
             </nav>
-            <div
-              id="jr-studio-myaccount"
-            >
-              <img className="my-account" width="50px" height="50px" src="account.png" alt="Manage your account" />
-            </div>
             <div
               style={{ paddingLeft: '5px' }}
               className="mdl-textfield mdl-js-textfield mdl-textfield--expandable
@@ -60,9 +56,10 @@ class App extends Component {
         <div style={{ background: '#FFFFFF' }} className="mdl-layout__drawer">
           <span className="mdl-layout-title">{TAPi18n.__('title.websitename')}</span>
           <nav className="mdl-navigation">
-            <a className="mdl-navigation__link" href="">{TAPi18n.__('header.link.interior')}</a>
-            <a className="mdl-navigation__link" href="">{TAPi18n.__('header.link.outdoor')}</a>
-            <a className="mdl-navigation__link" href="">{TAPi18n.__('header.link.artwork')}</a>
+            <a className="mdl-navigation__link" href="goodspage/wall">{TAPi18n.__('header.link.wall')}</a>
+            <a className="mdl-navigation__link" href="goodspage/potted">{TAPi18n.__('header.link.potted')}</a>
+            <a className="mdl-navigation__link" href="goodspage/massive">{TAPi18n.__('header.link.massive')}</a>
+            <a className="mdl-navigation__link" href="goodspage/combo">{TAPi18n.__('header.link.combo')}</a>
           </nav>
         </div>
         <main className="mdl-layout__content">

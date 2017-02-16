@@ -10,9 +10,7 @@ const Routers = () => {
       <Route path="/" component={App}>
         <IndexRoute component={HomePage} />
         <Route path="homepage" Component={HomePage} />
-        <Route path="goodspage" Component={GoodsPage}>
-          <Route path=":goodscategory" Component={GoodsPage} />
-        </Route>
+        <Route path="goodspage/:goodscategory" Component={GoodsPage} />
       </Route>
     </Router>
   );
