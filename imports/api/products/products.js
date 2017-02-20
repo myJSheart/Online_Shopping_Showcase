@@ -11,10 +11,12 @@ Products.allow({
 
 Products.schema = new SimpleSchema({
   name: { type: String, optional: false },
-  types: { type: [String], optional: false },
-  'types.$': { type: String, optional: true },
+  type: { type: String, optional: false },
   url: { type: String, optional: false },
-  num: { type: Number },
+  num: { type: Number, optional: false },
+  price: { type: Number, optional: false },
+  origin: { type: String, optional: false },
+  describe: { type: String, optional: true },
   createdAt: {
     type: Date,
     autoValue: () => {
@@ -73,5 +75,16 @@ Products.schema = new SimpleSchema({
 });
 
 Products.attachSchema(Products.schema);
+
+Products.publicFields = {
+  _id: 1,
+  name: 1,
+  type: 1,
+  url: 1,
+  num: 1,
+  price: 1,
+  origin: 1,
+  describe: 1,
+};
 
 export default Products;

@@ -28,7 +28,9 @@ class GoodsPage extends Component {
     return (
       <Grid>
         <Cell col={3} tablet={2} phone={2}>
-          <CategoryList />
+          <CategoryList
+            checkStateList={this.state.goodscategory}
+          />
         </Cell>
         <Cell col={9} tablet={6} phone={4}>
           <GoodsList />
