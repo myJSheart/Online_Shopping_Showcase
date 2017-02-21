@@ -5,14 +5,14 @@ class ProductItem extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      goodItem: this.props.goodItem,
+      goodsItem: this.props.goodsItem,
     };
   }
 
   render() {
     return (
       <div className="productitem">
-        <img src={this.state.goodItem.url} alt={this.state.goodItem.name} />
+        <img src={this.state.goodsItem.url} alt={this.state.goodsItem.name} />
         <div className="overlayer">
           <div className="overbutton"><Button label="Save" icon="favorite" flat /></div>
           <div className="overbutton"><Button label="Buy" icon="shopping_cart" raised primary /></div>
@@ -23,7 +23,7 @@ class ProductItem extends Component {
 }
 
 ProductItem.propTypes = {
-  goodItem: PropTypes.object.isRequired,
+  goodsItem: PropTypes.object.isRequired,
 };
 
 export default ProductItem;
