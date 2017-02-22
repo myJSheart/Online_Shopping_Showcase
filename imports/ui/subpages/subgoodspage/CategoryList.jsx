@@ -1,60 +1,69 @@
 import React, { Component, PropTypes } from 'react';
 import Checkbox from 'react-toolbox/lib/checkbox';
 
+
 class CategoryTitle extends Component {
   constructor(props) {
     super(props);
+    /**
+     * maintain two arraies,
+     * @param {Array} checkStateList record elements that are checked
+     * @param {Array} goodscategory all categories that should display in the check list
+     */
     this.state = {
-      wall: false,
-      potted: false,
-      massive: false,
-      combo: false,
+      checkStateList: this.props.checkStateList,
+      goodscategory: ['wall', 'potted', 'massive', 'combo'],
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillReceiveProps() {
-    Object.keys(this.props.checkStateList).forEach((field) => {
-      this.setState({
-        [field]: !this.props[field],
-      });
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      checkStateList: nextProps.checkStateList,
     });
   }
 
-  handleChange(field, value) {
-    this.setState({ [field]: value });
+  handleChange(value) {
+    const tempArray = this.state.checkStateList;
+    if (tempArray.includes(value)) {
+      tempArray.slice(tempArray.indexOf(value), 1);
+      this.setState({
+        checkStateList: tempArray,
+      });
+      this.props.sendCheckList(tempArray);
+    } else {
+      tempArray.push(value);
+      this.setState({
+        checkStateList: tempArray,
+      });
+      this.props.sendCheckList(tempArray);
+    }
   }
 
   render() {
     return (
       <div>
-        <Checkbox
-          checked={this.state.wall}
-          label="Wall"
-          onChange={this.handleChange('wall')}
-        />
-        <Checkbox
-          checked={this.state.wall}
-          label="Potted"
-          onChange={this.handleChange('potted')}
-        />
-        <Checkbox
-          checked={this.state.wall}
-          label="Massive"
-          onChange={this.handleChange('massive')}
-        />
-        <Checkbox
-          checked={this.state.wall}
-          label="combo"
-          onChange={this.handleChange('combo')}
-        />
+        {
+          () => {
+            this.state.goodscategory.forEach((cate) => {
+              return (
+                <Checkbox
+                  checked={() => { this.state.checkStateList.includes(cate); }}
+                  label={cate}
+                  onChange={this.handleChange(cate)}
+                />
+              );
+            });
+          }
+        }
       </div>
     );
   }
 }
 
 CategoryTitle.propTypes = {
-  checkStateList: PropTypes.object || { wall: false, potted: false, massive: false, combo: false },
+  checkStateList: PropTypes.object.isRequired,
+  sendCheckList: PropTypes.func.isRequired,
 };
 
 export default CategoryTitle;

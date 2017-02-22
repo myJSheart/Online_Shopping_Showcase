@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { withRouter } from 'react-router';
 import { Grid, Cell } from 'react-mdl';
 import CategoryList from '../subpages/subgoodspage/CategoryList.jsx';
 import GoodsList from '../subpages/subgoodspage/GoodsList.jsx';
@@ -9,8 +10,10 @@ class GoodsPage extends Component {
     this.state = {
       goodscategory: ['wall', 'potted', 'massive', 'combo'],
     };
+    this.receiveCheckList = this.receiveCheckList.bind();
   }
-  render() {
+
+  componentWillMount() {
     if (this.props.location.query.goodscategory === '' ||
         this.props.location.query.goodscategory === null ||
         this.props.location.query.goodscategory === 'all') {
@@ -24,12 +27,21 @@ class GoodsPage extends Component {
     } else if (this.props.location.query.goodscategory === 'combo') {
       this.setState({ goodscategory: ['combo'] });
     }
+  }
 
+  receiveCheckList(value) {
+    this.setState({
+      goodscategory: value,
+    });
+  }
+
+  render() {
     return (
       <Grid>
         <Cell col={3} tablet={2} phone={2}>
           <CategoryList
             checkStateList={this.state.goodscategory}
+            sendCheckList={this.receiveCheckList}
           />
         </Cell>
         <Cell col={9} tablet={6} phone={4}>
@@ -42,8 +54,10 @@ class GoodsPage extends Component {
 
 GoodsPage.propTypes = {
   location: PropTypes.shape({
-    query: PropTypes.object,
+    query: PropTypes.object.isRequired,
   }).isRequired,
 };
 
-export default GoodsPage;
+const GoodsPageRouter = withRouter(GoodsPage);
+
+export default GoodsPageRouter;
