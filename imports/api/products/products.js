@@ -4,7 +4,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 const Products = new Mongo.Collection('products');
 
 Products.allow({
-  insert() { return true; },
+  insert() { return false; },
   update() { return true; },
   remove() { return false; },
 });
@@ -14,7 +14,7 @@ Products.schema = new SimpleSchema({
   type: { type: String, optional: false },
   url: { type: String, optional: false },
   num: { type: Number, optional: false },
-  price: { type: Number, optional: false },
+  price: { type: String, optional: false },
   origin: { type: String, optional: false },
   describe: { type: String, optional: true },
   createdAt: {

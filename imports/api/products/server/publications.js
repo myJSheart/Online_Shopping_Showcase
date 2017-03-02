@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
-import { Products } from '../products.js';
+import Products from '../products.js';
 
 Meteor.publish('products.public', () => {
-  console.log('publish products.public');
-  return Products.find({ fields: Products.publicFields });
+  return Products.find({}, { fields: Products.publicFields });
 });

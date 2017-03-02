@@ -9,8 +9,8 @@ const Routers = () => {
     <Router history={browserHistory}>
       <Route path="/" component={App}>
         <IndexRoute component={HomePage} />
-        <Route path="homepage" Component={HomePage} />
-        <Route path="goodspage(/:goodscategory)" Component={GoodsPage} />
+        <Route path="homepage" component={HomePage} />
+        <Route path="goodspage/(:goodscategory)" component={GoodsPage} />
       </Route>
     </Router>
   );

@@ -1,6 +1,4 @@
-import { Meteor } from 'meteor/meteor';
 import React, { Component, PropTypes } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
 import { Grid, Cell } from 'react-mdl';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem,
           Pagination, PaginationItem, PaginationLink,
@@ -11,7 +9,8 @@ class GoodsList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      goodsList: this.props.goodsList,
+      goods: this.props.goods,
+      ready: this.props.ready,
       dropdownOpen: false,
       dropdownSelection: 'Sort By',
       dropdownSelectionCode: 0,
@@ -21,12 +20,20 @@ class GoodsList extends Component {
     [
       'dropdownToggle',
       'dropdownSelect',
-      'mergeSort',
+      'sortProducts',
       'previousPage',
       'toPage',
       'nextPage',
     ].forEach((method) => {
       this[method] = this[method].bind(this);
+    });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      goods: nextProps.goods,
+      ready: nextProps.ready,
+      pages: (nextProps.length / 10) + 1,
     });
   }
 
@@ -51,7 +58,7 @@ class GoodsList extends Component {
    * @return {Array} productsArray     an sorted array
    */
   sortProducts() {
-    const productsArray = this.state.goodsList;
+    const productsArray = this.props.goods;
     if (this.state.dropdownSelection === 1) { // Price -- Lowest to Highest
       for (let i = 0; i < productsArray.length; i++) {
         for (let j = 1; j < productsArray.length; j++) {
@@ -100,49 +107,46 @@ class GoodsList extends Component {
   }
 
   render() {
-    this.setState({ pages: (this.state.goodsList.length / 10) + 1 });
-    const productsView = (
-      () => {
-        const productsArray = this.sortProducts();
-        const start = (this.state.pageNum * 10) - 10;
-        const end = this.state.pageNum * 10;
-        for (let i = start; i < end; i++) {
-          return (
-            <ProductItem goodsItem={productsArray[i]} />
-          );
-        }
-      }
+    const withoutProducts = (
+      <div>
+        <Progress animated color="info" value="100" />
+      </div>
     );
+    if (!this.state.ready) {
+      return (
+        <div>
+          {withoutProducts}
+        </div>
+      );
+    }
+
+    const productsView = [];
+    const productsArray = this.sortProducts();
+    const start = (this.state.pageNum * 10) - 10;
+    const end = this.state.pageNum * 10;
+    for (let i = start; i < end; i++) {
+      productsView.push(<ProductItem goodsItem={productsArray[i]} />);
+    }
+
+    const pageList = [];
+    for (let i = 0; i < this.state.pages; i++) {
+      pageList.push(
+        <PaginationItem active={() => { return this.state.pageNum === i + 1; }} >
+          <PaginationLink onClick={() => { this.toPage(i + 1); }}>
+            { i + 1 }
+          </PaginationLink>
+        </PaginationItem>,
+      );
+    }
 
     const pageView = (
       <Pagination>
-        <PaginationItem disabled={() => { return this.state.pageNum === 1; }}>
-          <PaginationLink previous onClick={this.previousPage()} />
+        <PaginationItem disabled={this.state.pageNum === 1}>
+          <PaginationLink previous onClick={() => { this.previousPage(); }} />
         </PaginationItem>
-        {
-          () => {
-            for (let i = 0; i < this.state.pages; i++) {
-              if (this.state.pageNum === i + 1) {
-                return (
-                  <PaginationItem active={() => { return this.state.pageNum === i + 1; }} >
-                    <PaginationLink onClick={this.toPage(i + 1)}>
-                      { () => { return i + 1; } }
-                    </PaginationLink>
-                  </PaginationItem>
-                );
-              }
-              return (
-                <PaginationItem active={() => { return this.state.pageNum === i + 1; }}>
-                  <PaginationLink onClick={this.nextPage()}>
-                    { () => { return i + 1; } }
-                  </PaginationLink>
-                </PaginationItem>
-              );
-            }
-          }
-        }
-        <PaginationItem disabled={() => { return this.state.pageNum === this.state.pages; }}>
-          <PaginationLink next onClick={this.nextPage()} />
+        {pageList}
+        <PaginationItem disabled={this.state.pageNum === this.state.pages}>
+          <PaginationLink next onClick={() => { this.nextPage(); }} />
         </PaginationItem>
       </Pagination>
     );
@@ -169,25 +173,17 @@ class GoodsList extends Component {
       </Grid>
     );
 
-    const withoutProducts = (
-      <div>
-        <Progress animated color="info" value={100} />
-        {pageView}
-      </div>
-    );
-
     return (
-      { withProducts }
+      <div>
+        {withProducts}
+      </div>
     );
   }
 }
 
 GoodsList.propTypes = {
-  goodsList: PropTypes.object.isRequired,
+  goods: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
 };
 
-const GoodsListContainer = createContainer(() => {
-  return Meteor.subscribe('products.public');
-}, GoodsList);
-
-export default GoodsListContainer;
+export default GoodsList;

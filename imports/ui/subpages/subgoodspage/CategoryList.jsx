@@ -1,69 +1,61 @@
 import React, { Component, PropTypes } from 'react';
-import Checkbox from 'react-toolbox/lib/checkbox';
+import { Collapse, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { Link, withRouter } from 'react-router';
 
 
-class CategoryTitle extends Component {
+class CategoryList extends Component {
   constructor(props) {
     super(props);
     /**
      * maintain two arraies,
-     * @param {Array} checkStateList record elements that are checked
      * @param {Array} goodscategory all categories that should display in the check list
      */
     this.state = {
-      checkStateList: this.props.checkStateList,
+      collapse: true,
       goodscategory: ['wall', 'potted', 'massive', 'combo'],
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleCollapse = this.handleCollapse.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
+  handleCollapse() {
     this.setState({
-      checkStateList: nextProps.checkStateList,
+      collapse: !this.state.collapse,
     });
   }
 
-  handleChange(value) {
-    const tempArray = this.state.checkStateList;
-    if (tempArray.includes(value)) {
-      tempArray.slice(tempArray.indexOf(value), 1);
-      this.setState({
-        checkStateList: tempArray,
-      });
-      this.props.sendCheckList(tempArray);
-    } else {
-      tempArray.push(value);
-      this.setState({
-        checkStateList: tempArray,
-      });
-      this.props.sendCheckList(tempArray);
-    }
-  }
-
   render() {
+    const lists = this.state.goodscategory.map(
+      (category) => {
+        return (
+          <ListGroupItem>
+            <Button color="link">
+              <Link to={`/goodspage/${category}`}>
+                {category}
+              </Link>
+            </Button>
+          </ListGroupItem>
+        );
+      },
+    );
     return (
       <div>
-        {
-          () => {
-            this.state.goodscategory.forEach((cate) => {
-              return (
-                <Checkbox
-                  checked={() => { this.state.checkStateList.includes(cate); }}
-                  label={cate}
-                  onChange={this.handleChange(cate)}
-                />
-              );
-            });
-          }
-        }
+        <Button 
+          color="link"
+          size="lg"
+          onClick={() => { this.handleCollapse(); }}
+        >Types</Button>
+        <Collapse isOpen={this.state.collapse}>
+          <ListGroup>
+            {lists}
+          </ListGroup>
+        </Collapse>
       </div>
     );
   }
 }
 
-CategoryTitle.propTypes = {
-  checkStateList: PropTypes.object.isRequired,
-  sendCheckList: PropTypes.func.isRequired,
+CategoryList.propTypes = {
+  location: PropTypes.object.isRequired,
 };
 
-export default CategoryTitle;
+export default withRouter(CategoryList);
